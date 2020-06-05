@@ -501,6 +501,7 @@
     <Compile Include="Assets\Scripts\Hands\Utility\IgnoreCollisionsInChildren.cs" />
     <Compile Include="Assets\Scripts\Hands\Utility\KabschSolver.cs" />
     <Compile Include="Assets\Scripts\Hands\Utility\PhysicsCallbacks.cs" />
+    <Compile Include="Assets\Scripts\Panel\ImageContoller.cs" />
     <Compile Include="Assets\Scripts\Panel\SlideObject.cs" />
     <Compile Include="Assets\Varjo\Samples\Scripts\Events\VarjoDisableObjectsWhenHidden.cs" />
     <Compile Include="Assets\Varjo\Samples\Scripts\Events\VarjoEvents.cs" />
