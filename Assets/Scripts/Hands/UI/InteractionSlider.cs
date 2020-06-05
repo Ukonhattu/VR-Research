@@ -335,7 +335,7 @@ namespace Leap.Unity.Interaction {
 
       if (isPressed || isGrasped) {
         calculateSliderValues();
-        gameObject.SendMessage("Slide", HorizontalSliderValue);
+        
       }
 
       // Whenever "_wasSlid" is set to true (however many times between Update() cycles),
