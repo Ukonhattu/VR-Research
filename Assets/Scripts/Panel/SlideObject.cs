@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Leap.Unity.Interaction;
 
 public class SlideObject : MonoBehaviour
 {
@@ -14,13 +15,13 @@ public class SlideObject : MonoBehaviour
 
     public Axis axis;
 
-    public GameObject Target;
+    public InteractionSlider Slider;
 
-    private Transform originalTransform;
+    private Vector3 originalTransformPosition;
     // Start is called before the first frame update
     void Start()
     {
-        originalTransform = Target.transform;
+        originalTransformPosition = gameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -29,19 +30,19 @@ public class SlideObject : MonoBehaviour
         
     }
 
-    public void Slide(float x)
+    public void Slide()
     {
-        Debug.Log("Sliding");
-        Debug.Log(x);
+        float x = Slider.HorizontalSliderValue;
         switch(axis)
         {
-            case Axis.x: Target.transform.position = new Vector3(originalTransform.position.x * x, originalTransform.position.y, originalTransform.position.z);
+            case Axis.x: gameObject.transform.position = new Vector3(originalTransformPosition.x * x, originalTransformPosition.y, originalTransformPosition.z);
                 break;
             case Axis.y:
-                Target.transform.position = new Vector3(originalTransform.position.x, originalTransform.position.y * x, originalTransform.position.z);
+                gameObject.transform.position = new Vector3(originalTransformPosition.x, originalTransformPosition.y * x, originalTransformPosition.z);
                 break;
             case Axis.z:
-                Target.transform.position = new Vector3(originalTransform.position.x, originalTransform.position.y, originalTransform.position.z * x * 100);
+                gameObject.transform.position = new Vector3(originalTransformPosition.x, originalTransformPosition.y, (originalTransformPosition.z +1) * x * 100);
+                Debug.Log("Z axis");
                 break;
         }
     }
