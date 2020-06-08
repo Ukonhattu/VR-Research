@@ -1,22 +1,22 @@
-﻿
+﻿using UnityEngine;
+
+
 /// <summary>
 /// One Point of data for heatmap.
 /// </summary>
 public class DataPoint
 {
-    public int X { set; get; }
-    public int Y { set; get; }
+    public Vector3 Position { set; get; }
     public float Size { set; get; }
 
-    public DataPoint(int x, int y, float size)
+    public DataPoint(Vector3 position, float size)
     {
-        this.X = x;
-        this.Y = y;
+        this.Position = position;   
         this.Size = size;
     }
 
     override public string ToString()
     {
-        return "X: " + this.X + " Y: " + this.Y + " Size: " + this.Size;
+        return "X: " + this.Position.x + " Y: " + this.Position.y + "  z: " + this.Position.z + " Size: " + this.Size;
     }
 }
