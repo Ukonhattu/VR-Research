@@ -9,19 +9,19 @@ public class ImageContoller : MonoBehaviour
     private const string PATH = "images/";
     private const string FULL_PATH = "Assets/Resources/" + PATH;
 
-    private Sprite[] images;
+    private Texture2D[] images;
 
-    private SpriteRenderer spriteRenderer;
+    private MeshRenderer targetRenderer;
 
-    private int spriteIndex;
+    private int textureIndex;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        this.targetRenderer = gameObject.GetComponent<MeshRenderer>();
         readImages();
-        this.spriteIndex = 0;
-        this.spriteRenderer.sprite = images[this.spriteIndex];
+        this.textureIndex = 0;
+        this.targetRenderer.material.mainTexture = images[this.textureIndex];
         
     }
 
@@ -35,25 +35,24 @@ public class ImageContoller : MonoBehaviour
     {
         string[] fileNames = Directory.GetFiles(FULL_PATH);
         fileNames = fileNames.ToList<string>().Where(x => !x.EndsWith(".meta")).ToArray<string>();
-        images = new Sprite[fileNames.Length];
+        images = new Texture2D[fileNames.Length];
         for (int i = 0; i < fileNames.Length; i++)
         {
-            Texture2D temp = Resources.Load<Texture2D>(PATH + fileNames[i].Split('/').Last().Split('.')[0]);
-            images[i] = Sprite.Create(temp, new Rect(0, 0, temp.width, temp.height), new Vector2(0.5f, 0.5f));
+            images[i] = Resources.Load<Texture2D>(PATH + fileNames[i].Split('/').Last().Split('.')[0]);
         }
 
     }
 
     public void NextImage()
     {
-        this.spriteIndex = (this.spriteIndex + 1) % this.images.Length;
-        this.spriteRenderer.sprite = images[this.spriteIndex];
-        Debug.Log(this.spriteIndex);
+        this.textureIndex = (this.textureIndex + 1) % this.images.Length;
+        this.targetRenderer.material.mainTexture = images[this.textureIndex];
+        Debug.Log(this.textureIndex);
     }
 
     public void PreviousImage()
     {
-        this.spriteIndex = (this.spriteIndex - 1) < 0 ? this.images.Length - 1 : this.spriteIndex - 1;
-        this.spriteRenderer.sprite = images[this.spriteIndex];
+        this.textureIndex = (this.textureIndex - 1) < 0 ? this.images.Length - 1 : this.textureIndex - 1;
+        this.targetRenderer.material.mainTexture = images[this.textureIndex];
     }
 }
