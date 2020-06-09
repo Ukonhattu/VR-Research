@@ -26,6 +26,14 @@ public class HeatmapLogger
 
     private string[] ToCSVArray()
     {
-        return DataArray.Select(p => p.ToCSVString()).ToArray<string>();
+        List<string> csvlist = new List<string>();
+        csvlist.Add(this.GetCSVHeader());
+        csvlist.AddRange(DataArray.Select(p => p.ToCSVString()));
+        return csvlist.ToArray<string>();
+    }
+
+    private string GetCSVHeader()
+    {
+        return "x,y,z,size";
     }
 }
