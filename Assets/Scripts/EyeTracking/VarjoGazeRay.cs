@@ -33,6 +33,9 @@ namespace VarjoExample
         Vector3 gazePosition;
         Vector3 gazeRayOrigin;
 
+        private const int TICKRATE = 30;
+        private float _t;
+
         public enum Eye
         {
             both,
@@ -52,6 +55,18 @@ namespace VarjoExample
         }
 
         void Update()
+        {
+            float dur = 1f / TICKRATE;
+            _t += Time.deltaTime;
+            while (_t >= dur)
+            {
+                _t -= dur;
+                this.GazeRay();
+            }
+
+        }
+
+        private void GazeRay()
         {
             // Returns current state of the gaze
             data = VarjoPlugin.GetGaze();
@@ -94,22 +109,18 @@ namespace VarjoExample
                 // Raycast into world
                 if (Physics.SphereCast(gazeRayOrigin, gazeRayRadius, gazeRayDirection, out gazeRayHit))
                 {
-                    // Use layers or tags preferably to identify looked objects in your application.
-                    // This is done here via GetComponent for clarity's sake as example.
-                    VarjoGazeTarget target = gazeRayHit.collider.gameObject.GetComponent<VarjoGazeTarget>();
-
-                    if (target != null)
-                    {
-                        target.OnHit();
-                    }
 
                     if (drawDebug)
                     {
                         Debug.DrawLine(gazeRayOrigin, gazeRayOrigin + gazeRayDirection * 10.0f, Color.green);
                     }
 
+                    HeatmapDataReceiver dataTarget = gazeRayHit.collider.gameObject.GetComponent<HeatmapDataReceiver>();
 
-
+                    if (dataTarget != null)
+                    {
+                        dataTarget.ReceivePosition(gazeRayHit.point, gazeRayRadius);
+                    }
 
                 }
                 else
@@ -121,7 +132,6 @@ namespace VarjoExample
                 }
 
             }
-
         }
 
         private void ChangeGazeCircleSize(double focusDistance)

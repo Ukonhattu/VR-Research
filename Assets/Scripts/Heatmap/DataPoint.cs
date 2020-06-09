@@ -19,4 +19,9 @@ public class DataPoint
     {
         return "X: " + this.Position.x + " Y: " + this.Position.y + "  z: " + this.Position.z + " Size: " + this.Size;
     }
+
+    public string ToCSVString()
+    {
+        return this.Position.x + "," + this.Position.y + "," + this.Position.z + "," + this.Size;
+    }
 }

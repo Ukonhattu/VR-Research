@@ -502,6 +502,8 @@
     <Compile Include="Assets\Scripts\Hands\Utility\KabschSolver.cs" />
     <Compile Include="Assets\Scripts\Hands\Utility\PhysicsCallbacks.cs" />
     <Compile Include="Assets\Scripts\Heatmap\DataPoint.cs" />
+    <Compile Include="Assets\Scripts\Heatmap\HeatmapDataReceiver.cs" />
+    <Compile Include="Assets\Scripts\Heatmap\HeatmapDataWriter.cs" />
     <Compile Include="Assets\Scripts\Heatmap\HeatmapLogger.cs" />
     <Compile Include="Assets\Scripts\Panel\ImageContoller.cs" />
     <Compile Include="Assets\Scripts\Panel\SlideObject.cs" />
