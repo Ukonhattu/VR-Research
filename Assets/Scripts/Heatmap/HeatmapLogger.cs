@@ -43,8 +43,9 @@ public class HeatmapLogger
     private string infoJSON()
     {
         Bounds bounds = Target.bounds;
+        string imgname = Target.material.mainTexture.name;
         return $"{{ \"centerX\":{bounds.center.x}, \"centerY\":{bounds.center.y},  " +
-            $"\"sizeX\":{bounds.size.x}, \"sizeY\":{bounds.size.y}" +
-            $"}}";
+            $"\"sizeX\":{bounds.size.x}, \"sizeY\":{bounds.size.y}," +
+            $" \"image\":\"{imgname}\" }}";
     }
 }
