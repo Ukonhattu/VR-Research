@@ -37,7 +37,7 @@ public class HeatmapLogger
 
     private string GetCSVHeader()
     {
-        return "x,y,z,size,center,sizeX, sizeY";
+        return "x,y,z,size";
     }
 
     private string infoJSON()
