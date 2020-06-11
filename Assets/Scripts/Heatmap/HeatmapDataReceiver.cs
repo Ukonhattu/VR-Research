@@ -5,10 +5,12 @@ using UnityEngine;
 public class HeatmapDataReceiver : MonoBehaviour
 {
     private HeatmapLogger logger;
+    private MeshRenderer target;
 
     private void Start()
     {
-        this.logger = new HeatmapLogger();
+        this.target = gameObject.GetComponent<MeshRenderer>();
+        this.logger = new HeatmapLogger(this.target);
     }
 
     public void ReceiveDataPoint(DataPoint dataPoint)
