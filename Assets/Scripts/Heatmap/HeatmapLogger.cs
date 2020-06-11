@@ -24,14 +24,13 @@ public class HeatmapLogger
 
     public void SaveData()
     {
-        HeatmapDataWriter.WriteAll(this.ToCSVArray());
+        HeatmapDataWriter.WriteAll(this.ToCSVArray(), this.infoJSON());
     }
 
     private string[] ToCSVArray()
     {
         List<string> csvlist = new List<string>();
         csvlist.Add(this.GetCSVHeader());
-        csvlist.Add(this.GetBoundsCSV());
         csvlist.AddRange(DataArray.Select(p => p.ToCSVString()));
         return csvlist.ToArray<string>();
     }
@@ -41,9 +40,11 @@ public class HeatmapLogger
         return "x,y,z,size,center,sizeX, sizeY";
     }
 
-    private string GetBoundsCSV()
+    private string infoJSON()
     {
-        Bounds bounds = this.Target.bounds;
-        return ",,,," + bounds.center + "," + bounds.size.x + "," + bounds.size.y;
+        Bounds bounds = Target.bounds;
+        return $"{{ \"centerX\":{bounds.center.x}, \"centerY\":{bounds.center.y},  " +
+            $"\"sizeX\":{bounds.size.x}, \"sizeY\":{bounds.size.y}" +
+            $"}}";
     }
 }
