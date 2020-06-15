@@ -22,6 +22,7 @@ public class ImageContoller : MonoBehaviour
         readImages();
         this.textureIndex = 0;
         this.targetRenderer.material.mainTexture = images[this.textureIndex];
+        this.scalePlane();
         
     }
 
@@ -47,12 +48,18 @@ public class ImageContoller : MonoBehaviour
     {
         this.textureIndex = (this.textureIndex + 1) % this.images.Length;
         this.targetRenderer.material.mainTexture = images[this.textureIndex];
-        Debug.Log(this.textureIndex);
+        this.scalePlane();
     }
 
     public void PreviousImage()
     {
         this.textureIndex = (this.textureIndex - 1) < 0 ? this.images.Length - 1 : this.textureIndex - 1;
         this.targetRenderer.material.mainTexture = images[this.textureIndex];
+        this.scalePlane();
+    }
+
+    private void scalePlane()
+    {
+        this.targetRenderer.gameObject.transform.localScale = new Vector3(images[this.textureIndex].width / 1000f, 1f, images[this.textureIndex].height / 1000f);
     }
 }
