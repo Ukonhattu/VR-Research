@@ -7,6 +7,16 @@ This project is developed only on windows because Varjo headsets support only Wi
 
 
 # Setup
-`git clone git@github.com:Ukonhattu/VR-Research.git`
+`git clone git@github.com:Ukonhattu/VR-Research.git`  
 `git lfs install`
+
+This project is Varjo only. You need a Varjo HMD and Varjo Base software.
+
+# Python
+
+This repository has python scripts for data science purposes. Libraries needed to install:
+
+* Pandas
+* Matplotlib
+* Pillow
 
