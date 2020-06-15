@@ -5,9 +5,9 @@ import json
 import matplotlib.pyplot as plt
 from PIL import Image
 
-f = open("Data/Gazelog-2020-06-11-13-25-23/info.json") 
+f = open("Data/Gazelog-2020-06-15-12-41-40/info.json") 
 
-data = pd.read_csv("Data/Gazelog-2020-06-11-13-25-23/gazelog-2020-06-11-13-25-23.csv")
+data = pd.read_csv("Data/Gazelog-2020-06-15-12-41-40/gazelog-2020-06-15-12-41-40.csv")
 info = json.load(f)
 img = Image.open("Assets/Resources/images/" + info["image"] + ".jpg")
 
@@ -15,7 +15,6 @@ bounds = [
         [ info["centerX"] - (info["sizeX"] / 2.0), info["centerX"] + (info["sizeX"] / 2.0)],
         [ info["centerY"] - (info["sizeY"] / 2.0), info["centerY"] + (info["sizeY"] / 2.0)]
         ]
-bounds = [[-10,10], [-5, 5]]
 N_bins = 100
 
 
