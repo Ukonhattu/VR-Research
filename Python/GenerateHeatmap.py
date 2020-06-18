@@ -19,7 +19,7 @@ N_bins = 100
 
 
 plt.imshow(img, extent=[item for sublist in bounds for item in sublist])
-plt.hist2d(data['x'], data['y'], bins=N_bins, normed=False, cmap='plasma', range=bounds, cmin=1)
+plt.hist2d(data['x'], data['y'], bins=N_bins, density=False, cmap='plasma', range=bounds, cmin=1)
 
 # Plot a colorbar with label.
 cb = plt.colorbar()
