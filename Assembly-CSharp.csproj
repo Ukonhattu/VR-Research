@@ -462,6 +462,7 @@
     <Compile Include="Assets\LeapMotion\Modules\InteractionEngine\Testing\Scripts\Tests\CreationAndDeletionTests.cs" />
     <Compile Include="Assets\LeapMotion\Modules\InteractionEngine\Testing\Scripts\Tests\GraspingAPITests.cs" />
     <Compile Include="Assets\LeapMotion\Modules\InteractionEngine\Testing\Scripts\Tests\InteractionButtonTests.cs" />
+    <Compile Include="Assets\Scripts\Config\NetworkConfig.cs" />
     <Compile Include="Assets\Scripts\EyeTracking\VarjoGazeCalibrationRequest.cs" />
     <Compile Include="Assets\Scripts\EyeTracking\VarjoGazeLog.cs" />
     <Compile Include="Assets\Scripts\EyeTracking\VarjoGazeRay.cs" />

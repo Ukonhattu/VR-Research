@@ -8,14 +8,16 @@ using System.Threading;
 public class UnityHttpListener : MonoBehaviour
 {
 
+    public NetworkConfig networkConfig;
+
     private HttpListener listener;
     private Thread listenerThread;
 
     void Start()
     {
         listener = new HttpListener();
-        listener.Prefixes.Add("http://localhost:4444/");
-        listener.Prefixes.Add("http://127.0.0.1:4444/");
+        listener.Prefixes.Add(networkConfig.host + ":" + networkConfig.port + "/");
+        listener.Prefixes.Add(networkConfig.ip + ":" + networkConfig.port + "/");
         listener.AuthenticationSchemes = AuthenticationSchemes.Anonymous;
         listener.Start();
 
