@@ -58,6 +58,8 @@ public class UnityHttpListener : MonoBehaviour
             var data_text = new StreamReader(context.Request.InputStream,
                                 context.Request.ContentEncoding).ReadToEnd();
             Debug.Log(data_text);
+
+            ImageData imageData = (ImageData)new NetworkObject(data_text).GetObject();
         }
 
         context.Response.Close();
