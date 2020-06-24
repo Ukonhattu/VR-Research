@@ -20,6 +20,7 @@ public class NetworkObject
         }
         catch (Exception e)
         {
+            Debug.LogError(e);
             throw new Exception("Cannot convert Object to " + ObjectName + " with exception: " + e.Message);
         }
     }
