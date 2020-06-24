@@ -19,4 +19,5 @@ This repository has python scripts for data science purposes. Libraries needed t
 * Pandas
 * Matplotlib
 * Pillow
+* Requests
 
