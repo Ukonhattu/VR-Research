@@ -507,6 +507,7 @@
     <Compile Include="Assets\Scripts\Heatmap\HeatmapDataWriter.cs" />
     <Compile Include="Assets\Scripts\Heatmap\HeatmapLogger.cs" />
     <Compile Include="Assets\Scripts\Network\ImageData.cs" />
+    <Compile Include="Assets\Scripts\Network\NetworkObject.cs" />
     <Compile Include="Assets\Scripts\Network\UnityHttpListener.cs" />
     <Compile Include="Assets\Scripts\Panel\ChangeFontSize.cs" />
     <Compile Include="Assets\Scripts\Panel\ImageContoller.cs" />
