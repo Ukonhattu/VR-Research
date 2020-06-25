@@ -33,7 +33,7 @@ namespace VarjoExample
         Vector3 gazePosition;
         Vector3 gazeRayOrigin;
 
-        private const int TICKRATE = 30;
+        private const int TICKRATE = 60;
         private float _t;
 
         public enum Eye
