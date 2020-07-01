@@ -8,7 +8,14 @@ public class NetworkObject
 
     public NetworkObject(string json)
     {
-        JsonUtility.FromJsonOverwrite(json, this);
+        try
+        {
+            JsonUtility.FromJsonOverwrite(json, this);
+        } catch (Exception e)
+        {
+            Debug.LogError("Cannot construck NetworkObject: " + e);
+            throw new Exception("Cannot construct NetworkObject");
+        }
     }
 
     public object GetObject()
@@ -20,7 +27,7 @@ public class NetworkObject
         }
         catch (Exception e)
         {
-            Debug.LogError(e);
+            Debug.LogError("Cannot convert Object to " + ObjectName + " with exception: " + e.Message);
             throw new Exception("Cannot convert Object to " + ObjectName + " with exception: " + e.Message);
         }
     }

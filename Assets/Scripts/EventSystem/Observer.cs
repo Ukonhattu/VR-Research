@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
 using System.Linq;
+using UnityEngine;
 
 public sealed class Observer
 {
@@ -24,12 +25,21 @@ public sealed class Observer
 
     public void Publish(EventData data)
     {
+        Debug.Log("Making the list");
         List<Listener<EventData>> listenerList;
-        this.listeners.TryGetValue(data.GetType(), out listenerList);
+        Debug.Log("Trying to get value");
+        bool isListening = this.listeners.TryGetValue(data.GetType(), out listenerList);
+        if (!isListening)
+        {
+            Debug.Log("No one is lsitening");
+            return;
+        }
+        Debug.Log("Got Value: " + listenerList.ToString());
         foreach (Listener<EventData> listener in listenerList)
         {
             listener.Listen(data);
         }
+        Debug.Log("Looped trough all relevant listeners");
     }
 
     private Observer()

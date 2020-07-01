@@ -6,7 +6,7 @@ import getopt
 
 def main(argv):
 
-    objectName = "SomeName"
+    objectName = "ImageData"
     imagePath = "Some//Path//"
     viewSeconds = 4.0
     oid = 1
@@ -30,7 +30,7 @@ def main(argv):
             oid = arg
     
     url = 'http://localhost:4444'
-    data = '{{ "ObjectName": "{0}", "Object": "{{ "ImagePath": "{1}", "ViewSeconds": {2}, "Id": {3} }}" }}'.format(objectName, imagePath, viewSeconds, oid)
+    data = '{{ "ObjectName": "{0}", "Object": "{{ \\"ImagePath\\": \\"{1}\\", \\"ViewSeconds\\": {2}, \\"Id\\": {3} }}" }}'.format(objectName, imagePath, viewSeconds, oid)
     print(data)
     x = requests.post(url, data = data)
 
