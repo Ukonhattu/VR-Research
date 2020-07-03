@@ -9,7 +9,7 @@ public sealed class Observer
 
     public static Observer Instance { get; } = new Observer();
 
-    public void Subscribe(Listener<EventData> listener)
+    public void Subscribe<T>(Listener<T> listener)
     {
         List<Listener<EventData>> list;
         if (listeners.ContainsKey(listener.GetType().GetGenericArguments().Single()))
@@ -19,7 +19,14 @@ public sealed class Observer
         {
             list = new List<Listener<EventData>>();
         }
-        list.Add(listener);
+        if (listener.GetType().Equals(typeof(Listener<EventData>)))
+        {
+            list.Add(listener as Listener<EventData>);
+        } else
+        {
+            Debug.LogError("Listener is not of valid type");
+            throw new Exception("Listener is not of valid type");
+        }
         listeners.Add(listener.GetType().GetGenericArguments().Single(), list);
     }
 
