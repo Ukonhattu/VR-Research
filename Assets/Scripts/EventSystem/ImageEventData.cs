@@ -1,5 +1,10 @@
-﻿
-public class ImageEventData : EventData
+﻿using System;
+public class ImageDataArgs : EventArgs
 {
-    public ImageData ImageData { get; set; }
+    public ImageData ImageData { get; }
+
+    public ImageDataArgs(ImageData data)
+    {
+        ImageData = data;   
+    }
 }
