@@ -13,6 +13,8 @@ public class UnityHttpListener : MonoBehaviour
     private HttpListener listener;
     private Thread listenerThread;
 
+    private ImageData newImage = null;
+
 
     public static event EventHandler<ImageDataArgs> NewImageEvent;
 
@@ -31,6 +33,12 @@ public class UnityHttpListener : MonoBehaviour
 
     void Update()
     {
+        if (newImage != null)
+        {
+            ImageDataArgs eventData = new ImageDataArgs(newImage);
+            newImage = null;
+            NewImageEvent?.Invoke(this, eventData);
+        }
     }
 
     private void startListener()
@@ -61,13 +69,8 @@ public class UnityHttpListener : MonoBehaviour
             var data_text = new StreamReader(context.Request.InputStream,
                                 context.Request.ContentEncoding).ReadToEnd();
             Debug.Log(data_text);
-            Debug.Log("Making image data obj");
             ImageData imageData = (ImageData)new NetworkObject(data_text).GetObject();
-            Debug.Log("Making the event obj");
-            ImageDataArgs eventData = new ImageDataArgs(imageData);
-            Debug.Log("Going into observer");
-            NewImageEvent?.Invoke(this, eventData);
-            Debug.Log("Published");
+            this.newImage = imageData;
         }
 
         context.Response.Close();
