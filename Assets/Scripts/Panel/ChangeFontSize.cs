@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using Leap.Unity.Interaction;
+using UnityEngine.UI;
 
 public class ChangeFontSize : MonoBehaviour
 {
 
-    public TextMeshProUGUI text;
+    public Text text;
     public InteractionSlider slider;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,6 @@ public class ChangeFontSize : MonoBehaviour
 
     public void Change()
     {
-        this.text.fontSize = slider.HorizontalSliderValue;
+        this.text.fontSize = (int)slider.HorizontalSliderValue;
     }
 }
