@@ -122,6 +122,14 @@ namespace VarjoExample
                         dataTarget.ReceivePosition(gazeRayHit.point, gazeRayRadius);
                     }
 
+                    GazeTargetPanel panelTarget = gazeRayHit.collider.gameObject.GetComponent<GazeTargetPanel>();
+
+                    if (panelTarget != null)
+                    {
+                        panelTarget.OnGazeRayHit();
+                    }
+
+
                 }
                 else
                 {

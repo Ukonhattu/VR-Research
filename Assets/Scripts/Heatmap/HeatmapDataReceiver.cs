@@ -16,7 +16,7 @@ public class HeatmapDataReceiver : MonoBehaviour
     public void ReceiveDataPoint(DataPoint dataPoint)
     {
         this.logger.AddPoint(dataPoint);
-        Debug.Log("Received DataPoint: " + dataPoint);
+        //Debug.Log("Received DataPoint: " + dataPoint);
     }
 
     public void ReceivePosition(Vector3 position, float size)

@@ -464,6 +464,8 @@
     <Compile Include="Assets\LeapMotion\Modules\InteractionEngine\Testing\Scripts\Tests\InteractionButtonTests.cs" />
     <Compile Include="Assets\Scripts\Config\NetworkConfig.cs" />
     <Compile Include="Assets\Scripts\EventSystem\ImageEventData.cs" />
+    <Compile Include="Assets\Scripts\EventSystem\PanelEventArgs.cs" />
+    <Compile Include="Assets\Scripts\EyeTracking\GazeTargetPanel.cs" />
     <Compile Include="Assets\Scripts\EyeTracking\VarjoGazeCalibrationRequest.cs" />
     <Compile Include="Assets\Scripts\EyeTracking\VarjoGazeLog.cs" />
     <Compile Include="Assets\Scripts\EyeTracking\VarjoGazeRay.cs" />
@@ -511,6 +513,7 @@
     <Compile Include="Assets\Scripts\Network\NetworkObject.cs" />
     <Compile Include="Assets\Scripts\Network\UnityHttpListener.cs" />
     <Compile Include="Assets\Scripts\Panel\ChangeFontSize.cs" />
+    <Compile Include="Assets\Scripts\Panel\ChangePanelSize.cs" />
     <Compile Include="Assets\Scripts\Panel\ImageContoller.cs" />
     <Compile Include="Assets\Scripts\Panel\SlideObject.cs" />
     <Compile Include="Assets\Varjo\Samples\Scripts\Events\VarjoDisableObjectsWhenHidden.cs" />
