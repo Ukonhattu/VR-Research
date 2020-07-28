@@ -470,7 +470,8 @@
     <Compile Include="Assets\Scripts\EyeTracking\VarjoGazeLog.cs" />
     <Compile Include="Assets\Scripts\EyeTracking\VarjoGazeRay.cs" />
     <Compile Include="Assets\Scripts\EyeTracking\VarjoGazeTarget.cs" />
-    <Compile Include="Assets\Scripts\Hands\CustomIneraction\HandMagnet.cs" />
+    <Compile Include="Assets\Scripts\Hands\CustomInteraction\HandMagnet.cs" />
+    <Compile Include="Assets\Scripts\Hands\CustomInteraction\HandMagnetMovable.cs" />
     <Compile Include="Assets\Scripts\Hands\InteractionBehaviour.cs" />
     <Compile Include="Assets\Scripts\Hands\InteractionController.cs" />
     <Compile Include="Assets\Scripts\Hands\InteractionHand.cs" />
