@@ -31,7 +31,7 @@ public class HandMagnetMovable : MonoBehaviour
     public void MoveFurther(Vector3 target, Vector3 direction)
     {
         float distance = Vector3.Distance(transform.position, target);
-        if ( true)
+        if ( distance > 0.45f)
         {
             float step = speed * Time.deltaTime;
             transform.position += direction * step;

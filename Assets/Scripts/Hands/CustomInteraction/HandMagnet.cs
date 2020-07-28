@@ -4,6 +4,8 @@ using UnityEngine;
 using Leap.Unity;
 public class HandMagnet : MonoBehaviour
 {
+
+    public bool isLeftHand;
     public LeapProvider leapProvider;
 
     public LineRenderer laserLineRenderer;
@@ -23,11 +25,11 @@ public class HandMagnet : MonoBehaviour
         List<Leap.Hand> hands = leapProvider.CurrentFrame.Hands;
         for (int i = 0; i < hands.Count; i++) {
 
-            if (hands[i].IsLeft)
+            if (hands[i].IsLeft && isLeftHand)
             {
                 Vector3 start = UnityVectorExtension.ToVector3(hands[i].PalmPosition);
                 Vector3 dir = UnityVectorExtension.ToVector3(hands[i].PalmNormal);
-                //ShootLaserFromTargetPosition(start, dir, 5f); //visible ray
+                ShootLaserFromTargetPosition(start, dir, 5f); //visible ray
 
                 Ray ray = new Ray(start, dir);
 
@@ -41,11 +43,11 @@ public class HandMagnet : MonoBehaviour
                     }
                 }
             }
-            if (hands[i].IsRight)
+            else if (hands[i].IsRight && !isLeftHand)
             {
                 Vector3 start = UnityVectorExtension.ToVector3(hands[i].PalmPosition);
                 Vector3 dir = UnityVectorExtension.ToVector3(hands[i].PalmNormal);
-                //ShootLaserFromTargetPosition(start, dir, 5f); //visible ray
+                ShootLaserFromTargetPosition(start, dir, 5f); //visible ray
 
                 Ray ray = new Ray(start, dir);
 
@@ -77,4 +79,5 @@ public class HandMagnet : MonoBehaviour
         laserLineRenderer.SetPosition(0, targetPosition);
         laserLineRenderer.SetPosition(1, endPosition);
     }
+
 }
